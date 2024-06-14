@@ -10,13 +10,15 @@ const {
   getAllTasksForProject,
 } = require("../controllers/projectController");
 
-router.get("/", getAllProjects);
-router.get("/:id", getProjectById);
-router.post("/", createProject);
-router.put("/:id", updateProject);
-router.delete("/:id", deleteProject);
+// Define routes for project-related operations
+router.get("/", getAllProjects); // Get all projects
+router.get("/:id", getProjectById); // Get a project by ID
+router.post("/", createProject); // Create a new project
+router.put("/:id", updateProject); // Update a project by ID
+router.delete("/:id", deleteProject); // Delete a project by ID
 
-router.post("/:projectId/tasks", createTaskForProject);
-router.get("/:projectId/tasks", getAllTasksForProject);
+// Define routes for task-related operations within a project context
+router.post("/:projectId/tasks", createTaskForProject); // Create a task for a specific project
+router.get("/:projectId/tasks", getAllTasksForProject); // Get all tasks for a specific project
 
 module.exports = router;
